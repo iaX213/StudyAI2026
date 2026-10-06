@@ -1,5 +1,12 @@
-# Byte-compiled / optimized / DLL files
+#course
+data/
 __pycache__/
+*.pyc
+.DS_Store
+*.ipynb_checkpoints
+
+# Byte-compiled / optimized / DLL files
+# __pycache__/
 *.py[codz]
 *$py.class
 
@@ -77,7 +84,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+# .ipynb_checkpoints
 
 # IPython
 profile_default/
