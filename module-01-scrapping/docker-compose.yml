@@ -1,0 +1,18 @@
+services:
+  jupyter:
+    build: .
+    container_name: module01_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/workspace/notebooks
+      - ./data:/workspace/data
+      # .env монтируем явно — load_dotenv("/workspace/.env") найдёт его гарантированно
+      - ./.env:/workspace/.env:ro
+    env_file:
+      - .env
+    extra_hosts:
+      # FIX 1.1: на Linux host.docker.internal не работает без этой строки
+      # host-gateway = IP хостовой машины изнутри контейнера
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
